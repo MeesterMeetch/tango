@@ -39,6 +39,7 @@ var page ={
     $('.next').on('click', page.nextQuestion);
     $('.selectAnswer').on('click', 'input[type=radio]', page.selectChoice);
     $('.selectAnswer').on('click', 'input[type=checkbox]', page.addChecks);
+    $('#logo').on('click', page.reload);
   },
 
   openQuiz: function(){
@@ -332,7 +333,7 @@ var page ={
     displayResults: function(){
 
 
-          _.map(cities, function(value){
+          _.map(formattedCities, function(value){
             if(value.name === page.topOne){
               page.firstCity = {
                 name : value.name,
@@ -352,7 +353,7 @@ var page ={
             };
           });
 
-          _.map(cities, function(value){
+          _.map(formattedCities, function(value){
             if (value.name === page.topTwo) {
               page.secondCity = {
                 name : value.name,
@@ -370,7 +371,7 @@ var page ={
             }
           });
 
-          _.map(cities, function(value){
+          _.map(formattedCities, function(value){
             if (value.name === page.topThree) {
               page.thirdCity = {
                 name : value.name,
@@ -433,6 +434,10 @@ var page ={
         }
       });
       }
+    },
+
+    reload: function() {
+      location.reload();
     }
 
 };
